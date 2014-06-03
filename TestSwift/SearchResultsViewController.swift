@@ -10,6 +10,8 @@ import UIKit
  
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
+    let kCellIdentifier: String = "SearchResultCell"
+    
     var api: APIController = APIController()
     @IBOutlet var appsTableView : UITableView
     var tableData: NSArray = NSArray()
@@ -27,7 +29,11 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
+        
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kCellIdentifier)
+        }
         
         var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
         
@@ -58,4 +64,28 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        
+        // Get the row data for the selected row
+        var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
+        println(rowData)
+        
+        var name: String = rowData["trackName"] as String
+        var formattedPrice: String = rowData["formattedPrice"] as String
+        
+        var alert: UIAlertView = UIAlertView()
+        alert.title = name
+        alert.message = formattedPrice
+        alert.addButtonWithTitle("Ok")
+        alert.show()
+        
+    }
+    
 }
+
+
+
+
+
+
+

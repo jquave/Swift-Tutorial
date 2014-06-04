@@ -38,7 +38,9 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
         
-        cell.text = rowData["trackName"] as String
+        // Add a check to make sure this exists
+        let cellText: String? = rowData["trackName"] as? String
+        cell.text = cellText
         cell.image = UIImage(named: "Icon76")
 
         

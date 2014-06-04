@@ -40,30 +40,40 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         var formattedPrice: NSString = rowData["formattedPrice"] as NSString
         
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            // Jump in to a background thread to get the image for this item
             
             // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
             var urlString: NSString = rowData["artworkUrl60"] as NSString
-            //var image: UIImage? = self.imageCache[urlString] as? UIImage
+            
+            // Check our image cache for the existing key. This is just a dictionary of UIImages
             var image: UIImage? = self.imageCache.valueForKey(urlString) as? UIImage
+
             if( !image? ) {
+                // If the image does not exist, we need to download it
                 var imgURL: NSURL = NSURL(string: urlString)
                 
+                println("Download the image \(imgURL)")
                 // Download an NSData representation of the image at the URL
                 var imgData: NSData = NSData(contentsOfURL: imgURL)
                 image = UIImage(data: imgData)
+                
+                // Store the image in to our cache
                 self.imageCache.setValue(image, forKey: urlString)
-//                self.imageCache[urlString] = image
+                
+                println("Image downloaded")
             }
             dispatch_async(dispatch_get_main_queue()) {
+                // Back on the main thread, let's set the image view of the cell to use our amazing new image
+                // First, we need to make sure the cell hasn't gone off the screen, or worse, been re-used
+                // Validate the cell is still available by using cellForRowAtIndexPath
                 var sCell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
-                if sCell != nil {
+                
+                // If the cell exists, we're good and we can update it with this image
+                if sCell? {
                     let pCell: UITableViewCell = sCell!
                     pCell.image = image
-                    println("set cell to \(image?.size.width)")
-                    cell.image = image
-                    
+                    println("set image")
                 }
-                println("attempt to set cell")
             }
             
         })

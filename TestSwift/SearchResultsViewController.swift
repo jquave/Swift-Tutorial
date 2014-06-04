@@ -15,7 +15,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     var api: APIController = APIController()
     @IBOutlet var appsTableView : UITableView
     var tableData: NSArray = NSArray()
-    var imageCache = NSMutableArray()
+    var imageCache = NSMutableDictionary()
                             
     override func viewDidLoad() {
         super.viewDidLoad()

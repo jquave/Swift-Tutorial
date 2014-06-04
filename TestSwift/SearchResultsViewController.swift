@@ -41,7 +41,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         // Add a check to make sure this exists
         let cellText: String? = rowData["trackName"] as? String
         cell.text = cellText
-        cell.image = UIImage(named: "Icon76")
+        cell.image = UIImage(named: "Blank52")
 
         
         // Get the formatted price string for display in the subtitle

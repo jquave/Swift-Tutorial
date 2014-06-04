@@ -34,7 +34,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
         if cell == nil {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kCellIdentifier)
-        }
+        } 
         
         var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
         

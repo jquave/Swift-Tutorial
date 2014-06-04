@@ -78,6 +78,9 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                 })
 
             }
+            else {
+                cell.image = image
+            }
             
             
         })

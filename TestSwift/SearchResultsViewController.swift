@@ -58,29 +58,38 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                 // If the image does not exist, we need to download it
                 var imgURL: NSURL = NSURL(string: urlString)
                 
-                println("Download the image \(imgURL)")
                 // Download an NSData representation of the image at the URL
-                var imgData: NSData = NSData(contentsOfURL: imgURL)
-                image = UIImage(data: imgData)
-                
-                // Store the image in to our cache
-                self.imageCache.setValue(image, forKey: urlString)
-                
-                println("Image downloaded")
+                var request: NSURLRequest = NSURLRequest(URL: imgURL)
+                var urlConnection: NSURLConnection = NSURLConnection(request: request, delegate: self)
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
+                    if !error? {
+                        //var imgData: NSData = NSData(contentsOfURL: imgURL)
+                        image = UIImage(data: data)
+                        
+                        // Store the image in to our cache
+                        self.imageCache.setValue(image, forKey: urlString)
+                        cell.image = image
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            // Back on the main thread, let's set the image view of the cell to use our amazing new image
+                            // First, we need to make sure the cell hasn't gone off the screen, or worse, been re-used
+                            // Validate the cell is still available by using cellForRowAtIndexPath
+                            var sCell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
+                            
+                            // If the cell exists, we're good and we can update it with this image
+                            if sCell? {
+                                let pCell: UITableViewCell = sCell!
+                                pCell.image = image
+                            }
+                        }
+                    }
+                    else {
+                        println("Error: \(error.localizedDescription)")
+                    }
+                })
+
             }
-            dispatch_async(dispatch_get_main_queue()) {
-                // Back on the main thread, let's set the image view of the cell to use our amazing new image
-                // First, we need to make sure the cell hasn't gone off the screen, or worse, been re-used
-                // Validate the cell is still available by using cellForRowAtIndexPath
-                var sCell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
-                
-                // If the cell exists, we're good and we can update it with this image
-                if sCell? {
-                    let pCell: UITableViewCell = sCell!
-                    pCell.image = image
-                    println("set image")
-                }
-            }
+            
             
         })
 

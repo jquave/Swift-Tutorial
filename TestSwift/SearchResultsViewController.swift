@@ -71,19 +71,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                         // Store the image in to our cache
                         self.imageCache.setValue(image, forKey: urlString)
                         cell.image = image
-                        
-                        dispatch_async(dispatch_get_main_queue()) {
-                            // Back on the main thread, let's set the image view of the cell to use our amazing new image
-                            // First, we need to make sure the cell hasn't gone off the screen, or worse, been re-used
-                            // Validate the cell is still available by using cellForRowAtIndexPath
-                            var sCell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
-                            
-                            // If the cell exists, we're good and we can update it with this image
-                            if sCell? {
-                                let pCell: UITableViewCell = sCell!
-                                pCell.image = image
-                            }
-                        }
                     }
                     else {
                         println("Error: \(error.localizedDescription)")

@@ -15,10 +15,9 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
     var api: APIController = APIController()
     @IBOutlet var appsTableView : UITableView
     
-    var tableData: Dictionary<String, AnyObject>[] = []
     var albums: Album[] = []
-    
-    var imageCache = NSMutableDictionary()
+    //var imageCache = NSMutableDictionary()
+    var imageCache = Dictionary<String, UIImage>()
                             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,25 +47,16 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        //return countElements(self.tableData)
-        //return self.tableData.count
         return albums.count
     }
     
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         
-        
-        
         var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kCellIdentifier)
-        } 
         
-        var index: Int = indexPath.row
-        
-        // Find this cell's album by passing in the Int 'index' to the subscript method for an array of type Album[]
-        var album = self.albums[index]
+        // Find this cell's album by passing in the indexPath.row to the subscript method for an array of type Album[]
+        let album = self.albums[indexPath.row]
         
         cell.text = album.title
         cell.image = UIImage(named: "Blank52")
@@ -78,24 +68,24 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
             
             // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
             //var urlString: NSString = rowData["artworkUrl60"] as NSString
-            var urlString = album.thumbnailImageURL
+            let urlString = album.thumbnailImageURL
             
             // Check our image cache for the existing key. This is just a dictionary of UIImages
-            var image: UIImage? = self.imageCache.valueForKey(urlString) as? UIImage
+            var image: UIImage? = self.imageCache[urlString!]
 
             if( !image? ) {
                 // If the image does not exist, we need to download it
-                var imgURL: NSURL = NSURL(string: urlString)
+                let imgURL: NSURL = NSURL(string: urlString)
                 
                 // Download an NSData representation of the image at the URL
-                var request: NSURLRequest = NSURLRequest(URL: imgURL)
-                var urlConnection: NSURLConnection = NSURLConnection(request: request, delegate: self)
+                let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                let urlConnection: NSURLConnection = NSURLConnection(request: request, delegate: self)
                 NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
                     if !error? {
                         image = UIImage(data: data)
                         
                         // Store the image in to our cache
-                        self.imageCache.setValue(image, forKey: urlString)
+                        self.imageCache[urlString!] = image
                         
                         // Sometimes this request takes a while, and it's possible that a cell could be re-used before the art is done loading.
                         // Let's explicitly call the cellForRowAtIndexPath method of our tableView to make sure the cell is not nil, and therefore still showing onscreen.
@@ -125,7 +115,7 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
         // Store the results in our table data array
         if results.count>0 {
             
-            var allResults: NSDictionary[] = results["results"] as NSDictionary[]
+            let allResults: NSDictionary[] = results["results"] as NSDictionary[]
             
            // var swiftResultArray: NSDictionary[] = allResults
 
@@ -152,10 +142,9 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
                     }
                 }
                 
-                var thumbnailURL: String? = result["artworkUrl60"] as? String
-                var imageURL: String? = result["artworkUrl100"] as? String
-                
-                var artistURL: String? = result["artistViewUrl"] as? String
+                let thumbnailURL: String? = result["artworkUrl60"] as? String
+                let imageURL: String? = result["artworkUrl100"] as? String
+                let artistURL: String? = result["artistViewUrl"] as? String
                 
                 var itemURL: String? = result["collectionViewUrl"] as? String
                 if !itemURL? {

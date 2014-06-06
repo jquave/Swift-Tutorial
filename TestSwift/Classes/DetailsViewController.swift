@@ -10,7 +10,7 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    var detailInfo: NSDictionary?
+    var albumInfo: Album?
 
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

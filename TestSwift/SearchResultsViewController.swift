@@ -14,6 +14,7 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
     
     var api: APIController = APIController()
     @IBOutlet var appsTableView : UITableView
+    var selectedAlbum: Album?
     
     var albums: Album[] = []
     //var imageCache = NSMutableDictionary()
@@ -24,26 +25,6 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
         api.delegate = self
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         api.searchItunesFor("Bob Dylan");
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
-        
-        
-        if segue.identifier == "Details" {
-            //var detailsViewController: DetailsViewController? = segue.destinationViewController! as? DetailsViewController
-            
-            var destinationViewController: UIViewController = segue.destinationViewController as UIViewController
-
-         //   var detailsViewController: DetailsViewController = destinationViewController as DetailsViewController
-            
-            
-            //var destinationViewController: UIViewController! = segue.destinationViewController as UIViewController!
-            //var detailsViewController: DetailsViewController = destinationViewController as DetailsViewController
-/*            var selectedIndexPathRow = appsTableView.indexPathForSelectedRow().row
-            var selectedAppDetails: NSDictionary = self.tableData[selectedIndexPathRow] as NSDictionary
-            
-            detailsViewController.detailInfo = selectedAppDetails*/
-        }
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
@@ -165,6 +146,25 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         // Get the album for this row
         var album = albums[indexPath.row]
+        self.selectedAlbum = album
+
+        var storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+//        var viewController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("Details") as UIViewController
+        
+        let detailsVC = self.storyboard.instantiateViewControllerWithIdentifier("Details") as DetailsViewController
+        self.navigationController.pushViewController(detailsVC, animated: true)
+        
+       // self.navigationController.pushViewController(DetailsViewController(nibName: nil, bundle: nil), animated: true)
+        /*
+        let detailsVC: DetailsViewController? = viewController as? DetailsViewController
+        if detailsVC? {
+            //detailsVC?.albumInfo = self.selectedAlbum
+            detailsVC!.albumInfo = self.selectedAlbum
+            
+            println("Made detailsVC")
+        }
+//        detailsVC.albumInfo = self.selectedAlbum
+        */
     }
     
 }

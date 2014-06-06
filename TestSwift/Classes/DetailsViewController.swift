@@ -10,13 +10,12 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    var albumInfo: Album?
-
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        // Custom initialization
+    var detailInfo: NSDictionary?
+    
+    init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

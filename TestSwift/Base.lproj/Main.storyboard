@@ -44,6 +44,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="37" width="320" height="443"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Rph-up-PTP"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zEB-7D-wXK"/>
@@ -62,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="434" y="183"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="Iya-oL-ejU">
             <objects>
-                <viewController id="rSr-uw-pic" sceneMemberID="viewController">
+                <viewController id="rSr-uw-pic" customClass="DetailsViewController" customModule="TestSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="smX-3l-Dxh"/>
                         <viewControllerLayoutGuide type="bottom" id="RoX-md-gkS"/>
@@ -79,6 +82,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="33"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="71" y="71" width="179" height="52"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

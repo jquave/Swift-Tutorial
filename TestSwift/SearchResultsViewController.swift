@@ -22,10 +22,33 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
                             
     override func viewDidLoad() {
         super.viewDidLoad()
-        api.delegate = self
+        self.api.delegate = self
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         api.searchItunesFor("Bob Dylan");
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
+        var detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
+    }
+    
+    /*
+    
+        if segue.identifier == "Details" {
+            //var detailsViewController: DetailsViewController? = segue.destinationViewController! as? DetailsViewController
+            
+            var destinationViewController: UIViewController = segue.destinationViewController as UIViewController
+
+         //   var detailsViewController: DetailsViewController = destinationViewController as DetailsViewController
+            
+            
+            //var destinationViewController: UIViewController! = segue.destinationViewController as UIViewController!
+            //var detailsViewController: DetailsViewController = destinationViewController as DetailsViewController
+/*            var selectedIndexPathRow = appsTableView.indexPathForSelectedRow().row
+            var selectedAppDetails: NSDictionary = self.tableData[selectedIndexPathRow] as NSDictionary
+            
+            detailsViewController.detailInfo = selectedAppDetails*/
+        }
+    }*/
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return albums.count

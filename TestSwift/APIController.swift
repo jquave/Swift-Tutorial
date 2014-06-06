@@ -14,10 +14,11 @@ protocol APIControllerProtocol {
 
 class APIController {
     
-    let data: NSMutableData = NSMutableData()
     var delegate: APIControllerProtocol?
     
-    init(){}
+    init(delegate: APIControllerProtocol?) {
+        self.delegate = delegate
+    }
     
     func searchItunesFor(searchTerm: String) {
         
@@ -42,6 +43,7 @@ class APIController {
                     println("HTTP Error: \(error?.localizedDescription)")
                 }
                 else {
+                    println("Results recieved")
                     self.delegate?.didRecieveAPIResults(jsonResult)
                 }
             }

@@ -10,7 +10,12 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    var detailInfo: NSDictionary?
+    @IBOutlet var albumCover : UIImageView
+    @IBOutlet var titleLabel : UILabel
+    @IBOutlet var detailsTextView : UITextView
+    @IBOutlet var openButton : UIButton
+    
+    var album: Album?
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -18,13 +23,8 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        titleLabel.text = self.album?.title
+        albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.album?.largeImageURL)))
     }
 
 }

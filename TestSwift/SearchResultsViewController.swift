@@ -8,47 +8,33 @@
 
 import UIKit
  
-class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UITableViewDelegate, */APIControllerProtocol {
+class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
     let kCellIdentifier: String = "SearchResultCell"
     
-    var api: APIController = APIController()
+    var api: APIController?
+    
     @IBOutlet var appsTableView : UITableView
-    var selectedAlbum: Album?
+   // var selectedAlbum: Album?
     
     var albums: Album[] = []
-    //var imageCache = NSMutableDictionary()
     var imageCache = Dictionary<String, UIImage>()
                             
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.api.delegate = self
+        self.api = APIController(delegate: self)
+        
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        api.searchItunesFor("Bob Dylan");
+        println("Search")
+        self.api!.searchItunesFor("Bob Dylan");
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
         var detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
+        var albumIndex = appsTableView.indexPathForSelectedRow().row
+        var selectedAlbum = self.albums[albumIndex]
+        detailsViewController.album = selectedAlbum
     }
-    
-    /*
-    
-        if segue.identifier == "Details" {
-            //var detailsViewController: DetailsViewController? = segue.destinationViewController! as? DetailsViewController
-            
-            var destinationViewController: UIViewController = segue.destinationViewController as UIViewController
-
-         //   var detailsViewController: DetailsViewController = destinationViewController as DetailsViewController
-            
-            
-            //var destinationViewController: UIViewController! = segue.destinationViewController as UIViewController!
-            //var detailsViewController: DetailsViewController = destinationViewController as DetailsViewController
-/*            var selectedIndexPathRow = appsTableView.indexPathForSelectedRow().row
-            var selectedAppDetails: NSDictionary = self.tableData[selectedIndexPathRow] as NSDictionary
-            
-            detailsViewController.detailInfo = selectedAppDetails*/
-        }
-    }*/
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return albums.count
@@ -61,10 +47,8 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
         
         // Find this cell's album by passing in the indexPath.row to the subscript method for an array of type Album[]
         let album = self.albums[indexPath.row]
-        
         cell.text = album.title
         cell.image = UIImage(named: "Blank52")
-        
         cell.detailTextLabel.text = album.price
         
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
@@ -120,8 +104,6 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
         if results.count>0 {
             
             let allResults: NSDictionary[] = results["results"] as NSDictionary[]
-            
-           // var swiftResultArray: NSDictionary[] = allResults
 
             // Sometimes iTunes returns a collection, not a track, so we check both for the 'name'
             for result: NSDictionary in allResults {
@@ -137,7 +119,6 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
                     price = result["collectionPrice"] as? String
                     if !price? {
                         var priceFloat: Float? = result["collectionPrice"] as? Float
-                        println(priceFloat)
                         var nf: NSNumberFormatter = NSNumberFormatter()
                         nf.maximumFractionDigits = 2;
                         if priceFloat? {
@@ -156,7 +137,6 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
                 }
                 
                 var newAlbum = Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL!, largeImageURL: imageURL!, itemURL: itemURL!, artistURL: artistURL!)
-                
                 albums.append(newAlbum)
             }
             
@@ -164,30 +144,6 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
             self.appsTableView.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
-    }
-    
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        // Get the album for this row
-        var album = albums[indexPath.row]
-        self.selectedAlbum = album
-
-        var storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-//        var viewController: UIViewController = storyboard.instantiateViewControllerWithIdentifier("Details") as UIViewController
-        
-        let detailsVC = self.storyboard.instantiateViewControllerWithIdentifier("Details") as DetailsViewController
-        self.navigationController.pushViewController(detailsVC, animated: true)
-        
-       // self.navigationController.pushViewController(DetailsViewController(nibName: nil, bundle: nil), animated: true)
-        /*
-        let detailsVC: DetailsViewController? = viewController as? DetailsViewController
-        if detailsVC? {
-            //detailsVC?.albumInfo = self.selectedAlbum
-            detailsVC!.albumInfo = self.selectedAlbum
-            
-            println("Made detailsVC")
-        }
-//        detailsVC.albumInfo = self.selectedAlbum
-        */
     }
     
 }

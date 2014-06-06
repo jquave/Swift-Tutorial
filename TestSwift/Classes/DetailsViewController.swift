@@ -11,12 +11,11 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     var detailInfo: NSDictionary?
-
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        // Custom initialization
+    
+    init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

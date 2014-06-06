@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="434" y="183"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="Iya-oL-ejU">
             <objects>
-                <viewController id="rSr-uw-pic" sceneMemberID="viewController">
+                <viewController id="rSr-uw-pic" customClass="DetailsViewController" customModule="TestSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="smX-3l-Dxh"/>
                         <viewControllerLayoutGuide type="bottom" id="RoX-md-gkS"/>

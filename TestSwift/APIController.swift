@@ -6,16 +6,18 @@
 //  Copyright (c) 2014 JQ Software LLC. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol APIControllerProtocol {
     func didRecieveAPIResults(results: NSDictionary)
 }
 
-class APIController: NSObject {
+class APIController {
     
     let data: NSMutableData = NSMutableData()
     var delegate: APIControllerProtocol?
+    
+    init(){}
     
     func searchItunesFor(searchTerm: String) {
         

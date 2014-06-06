@@ -21,14 +21,17 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
                             
     override func viewDidLoad() {
         super.viewDidLoad()
-        api.delegate = self
+        self.api.delegate = self
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         api.searchItunesFor("Bob Dylan");
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
-        
-        
+        var detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
+    }
+    
+    /*
+    
         if segue.identifier == "Details" {
             //var detailsViewController: DetailsViewController? = segue.destinationViewController! as? DetailsViewController
             
@@ -44,7 +47,7 @@ class SearchResultsViewController: UIViewController,/* UITableViewDataSource, UI
             
             detailsViewController.detailInfo = selectedAppDetails*/
         }
-    }
+    }*/
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return albums.count

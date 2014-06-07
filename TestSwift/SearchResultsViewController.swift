@@ -145,26 +145,4 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

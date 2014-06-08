@@ -68,8 +68,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var track = tracks[indexPath.row]
-        
-        
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TrackCell {
             if(trackPlaying(track)) {
                 cell.playIcon.text = "▶️"
@@ -84,7 +82,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
     }
-    
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return tracks.count

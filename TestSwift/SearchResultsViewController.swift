@@ -62,7 +62,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             // Jump in to a background thread to get the image for this item
             
             // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
-            //var urlString: NSString = rowData["artworkUrl60"] as NSString
             let urlString = album.thumbnailImageURL
             
             // Check our image cache for the existing key. This is just a dictionary of UIImages

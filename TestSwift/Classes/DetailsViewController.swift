@@ -11,6 +11,9 @@ import QuartzCore
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, APIControllerProtocol {
     
+    let playIcon = "▶️"
+    let stoppedIcon = "⬛️"
+    
     @IBOutlet var albumCover : UIImageView
     @IBOutlet var titleLabel : UILabel
     @IBOutlet var tracksTableView : UITableView
@@ -54,7 +57,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(tableView: UITableView!, didDeselectRowAtIndexPath indexPath: NSIndexPath!) {
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TrackCell {
-            cell.playIcon.text = "▶️"
+            cell.playIcon.text = playIcon
         }
     }
     
@@ -71,11 +74,11 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         var track = tracks[indexPath.row]
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TrackCell {
             if(trackPlaying(track)) {
-                cell.playIcon.text = "▶️"
+                cell.playIcon.text = playIcon
                 mediaPlayer.stop()
             }
             else {
-                cell.playIcon.text = "⬛️"
+                cell.playIcon.text = stoppedIcon
                 mediaPlayer.stop()
                 mediaPlayer.contentURL = NSURL(string: track.previewUrl)
                 mediaPlayer.play()
@@ -105,10 +108,10 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.titleLabel.text = track.title
         
         if( trackPlaying(track) ) {
-            cell.playIcon.text = "⬛️"
+            cell.playIcon.text = stoppedIcon
         }
         else {
-            cell.playIcon.text = "▶️"
+            cell.playIcon.text = playIcon
         }
         
         return cell

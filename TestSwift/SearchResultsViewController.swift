@@ -136,7 +136,9 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                     itemURL = result["trackViewUrl"] as? String
                 }
                 
-                var newAlbum = Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL!, largeImageURL: imageURL!, itemURL: itemURL!, artistURL: artistURL!)
+                var collectionID = result["collectionId"] as? Int
+                
+                var newAlbum = Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL!, largeImageURL: imageURL!, itemURL: itemURL!, artistURL: artistURL!, collectionID: collectionID!)
                 albums.append(newAlbum)
             }
             

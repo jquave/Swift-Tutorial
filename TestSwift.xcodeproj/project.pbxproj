@@ -63,6 +63,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021E1AEA1944CC8300FDC37C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02CCF4A9193D16930069AEE9 /* SearchResultsViewController.swift */,
+				022889EE193FC3AC00D729A0 /* DetailsViewController.swift */,
+				02CCF4AB193D16930069AEE9 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		021E1AEB1944CC8D00FDC37C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				022889F0193FD6C000D729A0 /* Album.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		021E1AEC1944CC9500FDC37C /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				02F504DA193E0B630037F599 /* APIController.swift */,
+			);
+			name = REST;
+			sourceTree = "<group>";
+		};
+		021E1AED1944CCA800FDC37C /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				0229AE62193F97EF00BCED97 /* Blank52.png */,
+			);
+			name = Graphics;
+			sourceTree = "<group>";
+		};
 		02CCF499193D16930069AEE9 = {
 			isa = PBXGroup;
 			children = (
@@ -84,13 +118,10 @@
 		02CCF4A4193D16930069AEE9 /* TestSwift */ = {
 			isa = PBXGroup;
 			children = (
-				0229AE62193F97EF00BCED97 /* Blank52.png */,
-				022889F0193FD6C000D729A0 /* Album.swift */,
-				02CCF4A7193D16930069AEE9 /* AppDelegate.swift */,
-				02CCF4A9193D16930069AEE9 /* SearchResultsViewController.swift */,
-				02F504DA193E0B630037F599 /* APIController.swift */,
-				022889EE193FC3AC00D729A0 /* DetailsViewController.swift */,
-				02CCF4AB193D16930069AEE9 /* Main.storyboard */,
+				021E1AED1944CCA800FDC37C /* Graphics */,
+				021E1AEC1944CC9500FDC37C /* REST */,
+				021E1AEB1944CC8D00FDC37C /* Model */,
+				021E1AEA1944CC8300FDC37C /* Views */,
 				02CCF4AE193D16930069AEE9 /* Images.xcassets */,
 				02CCF4A5193D16930069AEE9 /* Supporting Files */,
 				028D579A1944A6C300268B8F /* TestSwift-Bridging-Header.h */,
@@ -101,6 +132,7 @@
 		02CCF4A5193D16930069AEE9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				02CCF4A7193D16930069AEE9 /* AppDelegate.swift */,
 				02CCF4A6193D16930069AEE9 /* Info.plist */,
 			);
 			name = "Supporting Files";

@@ -20,17 +20,10 @@ class APIController {
         self.delegate = delegate
     }
     
-    func searchItunesFor(searchTerm: String) {
-        
-        // The iTunes API wants multiple terms separated by + symbols, so replace spaces with + signs
-        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
-        
-        // Now escape anything else that isn't URL-friendly
-        let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        let urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
-        let url = NSURL(string: urlPath)
+    func get(path: String) {
+        let url = NSURL(string: path)
         let request = NSURLRequest(URL: url)
-
+        
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
             if error? {
                 println("ERROR: \(error.localizedDescription)")
@@ -49,4 +42,19 @@ class APIController {
             }
         })
     }
+    
+    func searchItunesFor(searchTerm: String) {
+        // The iTunes API wants multiple terms separated by + symbols, so replace spaces with + signs
+        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+        
+        // Now escape anything else that isn't URL-friendly
+        let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        let urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
+        get(urlPath)
+    }
+    
+    func lookupTrackWithID(trackID: String) {
+        
+    }
+    
 }

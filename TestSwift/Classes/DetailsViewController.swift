@@ -12,8 +12,6 @@ class DetailsViewController: UIViewController {
     
     @IBOutlet var albumCover : UIImageView
     @IBOutlet var titleLabel : UILabel
-    @IBOutlet var detailsTextView : UITextView
-    @IBOutlet var openButton : UIButton
     
     var album: Album?
     

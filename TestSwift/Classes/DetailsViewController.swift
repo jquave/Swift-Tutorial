@@ -57,15 +57,30 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func trackPlaying(track: Track) -> Bool {
+        if mediaPlayer.contentURL? {
+            return (mediaPlayer.contentURL == NSURL(string: track.previewUrl))
+        }
+        else {
+            return false
+        }
+    }
+    
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         var track = tracks[indexPath.row]
         
-        mediaPlayer.stop()
-        mediaPlayer.contentURL = NSURL(string: track.previewUrl)
-        mediaPlayer.play()
         
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TrackCell {
-            cell.playIcon.text = "⬛️"
+            if(trackPlaying(track)) {
+                cell.playIcon.text = "▶️"
+                mediaPlayer.stop()
+            }
+            else {
+                cell.playIcon.text = "⬛️"
+                mediaPlayer.stop()
+                mediaPlayer.contentURL = NSURL(string: track.previewUrl)
+                mediaPlayer.play()
+            }
         }
         
     }
@@ -80,7 +95,13 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var track = tracks[indexPath.row]
         cell.titleLabel.text = track.title
-        cell.playIcon.text = "▶️"
+        
+        if( trackPlaying(track) ) {
+            cell.playIcon.text = "⬛️"
+        }
+        else {
+            cell.playIcon.text = "▶️"
+        }
         
         return cell
     }

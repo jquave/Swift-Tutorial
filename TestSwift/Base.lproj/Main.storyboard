@@ -48,6 +48,9 @@
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="0.0" y="37" width="320" height="443"/>
                                 </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="84" width="320" height="556"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Rph-up-PTP"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zEB-7D-wXK"/>
@@ -55,7 +58,20 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jTM-Fb-meD" secondAttribute="bottom" id="3KA-a5-fvl"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3KA-a5-fvl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="3KA-a5-fvl"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="f7u-DV-ixa"/>
                     <connections>
@@ -93,17 +109,43 @@
                                     <rect key="frame" x="20" y="71" width="100" height="100"/>
                                 </variation>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Il-Wa-ILq">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="179" width="280" height="281"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="20" y="179" width="280" height="461"/>
+                                </variation>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Il-Wa-ILq" firstAttribute="top" secondItem="smX-3l-Dxh" secondAttribute="bottom" constant="115" id="aF6-5H-laP"/>
+                            <constraint firstItem="RoX-md-gkS" firstAttribute="top" secondItem="0Il-Wa-ILq" secondAttribute="bottom" id="aQQ-ui-AeM"/>
+                        </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="vzM-nB-nVu"/>
+                                <exclude reference="0Il-Wa-ILq"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="aF6-5H-laP"/>
+                                <exclude reference="aQQ-ui-AeM"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="vzM-nB-nVu"/>
+                                <include reference="0Il-Wa-ILq"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="aF6-5H-laP"/>
+                                <include reference="aQQ-ui-AeM"/>
                             </mask>
                         </variation>
                     </view>

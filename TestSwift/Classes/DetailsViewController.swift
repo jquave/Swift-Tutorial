@@ -40,8 +40,12 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let allResults = results["results"] as? NSDictionary[] {
             for trackInfo in allResults {
                 // Create the track
-                var track = Track(dict: trackInfo)
-                tracks.append(track)
+                if let kind = trackInfo["kind"] as? String {
+                    if kind=="song" {
+                        var track = Track(dict: trackInfo)
+                        tracks.append(track)
+                    }
+                }
             }
         }
         tracksTableView.reloadData()
@@ -53,7 +57,20 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        return nil
+        var cell = tableView.dequeueReusableCellWithIdentifier("TrackCell") as TrackCell
+        
+        var track = tracks[indexPath.row]
+        cell.titleLabel.text = track.title
+        
+        /*var playButton = cell.viewWithTag(0) as UIButton
+        var titleText = cell.viewWithTag(1) as UILabel
+        
+        var track = tracks[indexPath.row]
+        
+        titleText.text = track.title
+        */
+        
+        return cell
     }
 
 }

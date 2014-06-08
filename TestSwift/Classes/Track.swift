@@ -12,14 +12,10 @@ class Track {
     var price: String?
     var previewUrl: String?
     
-    init(name: String!, price: String!, previewUrl: String!) {
-        self.title = name
-        self.price = price
-        self.previewUrl = previewUrl
-    }
-    
     init(dict: NSDictionary!) {
-        
+        self.title = dict["trackName"] as? String
+        self.price = dict["trackPrice"] as? String
+        self.previewUrl = dict["previewUrl"] as? String
     }
     
 }

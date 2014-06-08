@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		021E1AEF1944CDDE00FDC37C /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E1AEE1944CDDE00FDC37C /* Track.swift */; };
+		021E1AF11944D4A800FDC37C /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021E1AF01944D4A800FDC37C /* TrackCell.swift */; };
 		022889EF193FC3AC00D729A0 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022889EE193FC3AC00D729A0 /* DetailsViewController.swift */; };
 		022889F1193FD6C000D729A0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022889F0193FD6C000D729A0 /* Album.swift */; };
 		0229AE63193F97EF00BCED97 /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 0229AE62193F97EF00BCED97 /* Blank52.png */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		021E1AEE1944CDDE00FDC37C /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Track.swift; path = Classes/Track.swift; sourceTree = "<group>"; };
+		021E1AF01944D4A800FDC37C /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		022889EE193FC3AC00D729A0 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Classes/DetailsViewController.swift; sourceTree = "<group>"; };
 		022889F0193FD6C000D729A0 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Album.swift; path = Classes/Album.swift; sourceTree = "<group>"; };
 		0229AE62193F97EF00BCED97 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				02CCF4A9193D16930069AEE9 /* SearchResultsViewController.swift */,
 				022889EE193FC3AC00D729A0 /* DetailsViewController.swift */,
 				02CCF4AB193D16930069AEE9 /* Main.storyboard */,
+				021E1AF01944D4A800FDC37C /* TrackCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				021E1AF11944D4A800FDC37C /* TrackCell.swift in Sources */,
 				02CCF4AA193D16930069AEE9 /* SearchResultsViewController.swift in Sources */,
 				02CCF4A8193D16930069AEE9 /* AppDelegate.swift in Sources */,
 				02F504DB193E0B630037F599 /* APIController.swift in Sources */,

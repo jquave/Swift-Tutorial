@@ -25,4 +25,5 @@ class Album {
         self.artistURL = artistURL
         self.collectionId = collectionId
     }
+    
 }

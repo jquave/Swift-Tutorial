@@ -12,6 +12,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet var albumCover : UIImageView
     @IBOutlet var titleLabel : UILabel
+    @IBOutlet var tracksTableView : UITableView
     
     var album: Album?
     var tracks: Track[] = []
@@ -36,11 +37,19 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func didRecieveAPIResults(results: NSDictionary) {
         println("Got track deets \(results)")
+        if let allResults = results["results"] as? NSDictionary[] {
+            for trackInfo in allResults {
+                // Create the track
+                var track = Track(dict: trackInfo)
+                tracks.append(track)
+            }
+        }
+        tracksTableView.reloadData()
     }
     
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return tracks.count
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {

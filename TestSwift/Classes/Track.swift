@@ -17,4 +17,9 @@ class Track {
         self.price = price
         self.previewUrl = previewUrl
     }
+    
+    init(dict: NSDictionary!) {
+        
+    }
+    
 }

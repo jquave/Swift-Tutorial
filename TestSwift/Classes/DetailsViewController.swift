@@ -17,6 +17,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     var album: Album?
     var tracks: Track[] = []
     var api: APIController?
+    var mediaPlayer: MPMoviePlayerController = MPMoviePlayerController()
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -36,7 +37,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func didRecieveAPIResults(results: NSDictionary) {
-        println("Got track deets \(results)")
         if let allResults = results["results"] as? NSDictionary[] {
             for trackInfo in allResults {
                 // Create the track
@@ -51,6 +51,25 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tracksTableView.reloadData()
     }
     
+    func tableView(tableView: UITableView!, didDeselectRowAtIndexPath indexPath: NSIndexPath!) {
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TrackCell {
+            cell.playIcon.text = "▶️"
+        }
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        var track = tracks[indexPath.row]
+        
+        mediaPlayer.stop()
+        mediaPlayer.contentURL = NSURL(string: track.previewUrl)
+        mediaPlayer.play()
+        
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TrackCell {
+            cell.playIcon.text = "⬛️"
+        }
+        
+    }
+    
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return tracks.count
@@ -61,14 +80,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         var track = tracks[indexPath.row]
         cell.titleLabel.text = track.title
-        
-        /*var playButton = cell.viewWithTag(0) as UIButton
-        var titleText = cell.viewWithTag(1) as UILabel
-        
-        var track = tracks[indexPath.row]
-        
-        titleText.text = track.title
-        */
+        cell.playIcon.text = "▶️"
         
         return cell
     }

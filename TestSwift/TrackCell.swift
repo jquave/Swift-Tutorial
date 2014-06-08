@@ -11,7 +11,7 @@ import Foundation
 
 class TrackCell: UITableViewCell {
     
-    @IBOutlet var playButton: UIButton
+    @IBOutlet var playIcon: UILabel
     @IBOutlet var titleLabel: UILabel
     
 }

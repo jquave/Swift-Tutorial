@@ -28,8 +28,8 @@ class APIController {
         // Now escape anything else that isn't URL-friendly
         let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         let urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
-        let url: NSURL = NSURL(string: urlPath)
-        let request: NSURLRequest = NSURLRequest(URL: url)
+        let url = NSURL(string: urlPath)
+        let request = NSURLRequest(URL: url)
 
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
             if error? {
@@ -37,7 +37,7 @@ class APIController {
             }
             else {
                 var error: NSError?
-                let jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+                let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
                 // Now send the JSON result to our delegate object
                 if error? {
                     println("HTTP Error: \(error?.localizedDescription)")

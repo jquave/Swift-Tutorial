@@ -10,7 +10,7 @@ import UIKit
  
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
-    let kCellIdentifier: String = "SearchResultCell"
+    let kCellIdentifier = "SearchResultCell"
     
     var api: APIController?
     
@@ -43,7 +43,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
         
         // Find this cell's album by passing in the indexPath.row to the subscript method for an array of type Album[]
         let album = self.albums[indexPath.row]
@@ -63,11 +63,11 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
 
             if( !image? ) {
                 // If the image does not exist, we need to download it
-                let imgURL: NSURL = NSURL(string: urlString)
+                let imgURL = NSURL(string: urlString)
                 
                 // Download an NSData representation of the image at the URL
-                let request: NSURLRequest = NSURLRequest(URL: imgURL)
-                let urlConnection: NSURLConnection = NSURLConnection(request: request, delegate: self)
+                let request = NSURLRequest(URL: imgURL)
+                let urlConnection = NSURLConnection(request: request, delegate: self)
                 NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
                     if !error? {
                         image = UIImage(data: data)
@@ -106,15 +106,15 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             let allResults: NSDictionary[] = results["results"] as NSDictionary[]
 
             // Sometimes iTunes returns a collection, not a track, so we check both for the 'name'
-            for result: NSDictionary in allResults {
+            for result in allResults {
                 
-                var name: String? = result["trackName"] as? String
+                var name = result["trackName"] as? String
                 if !name? {
                     name = result["collectionName"] as? String
                 }
                 
                 // Sometimes price comes in as formattedPrice, sometimes as collectionPrice.. and sometimes it's a float instead of a string. Hooray!
-                var price: String? = result["formattedPrice"] as? String
+                var price = result["formattedPrice"] as? String
                 if !price? {
                     price = result["collectionPrice"] as? String
                     if !price? {
@@ -127,11 +127,11 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                     }
                 }
                 
-                let thumbnailURL: String? = result["artworkUrl60"] as? String
-                let imageURL: String? = result["artworkUrl100"] as? String
-                let artistURL: String? = result["artistViewUrl"] as? String
+                let thumbnailURL = result["artworkUrl60"] as? String
+                let imageURL = result["artworkUrl100"] as? String
+                let artistURL = result["artistViewUrl"] as? String
                 
-                var itemURL: String? = result["collectionViewUrl"] as? String
+                var itemURL = result["collectionViewUrl"] as? String
                 if !itemURL? {
                     itemURL = result["trackViewUrl"] as? String
                 }

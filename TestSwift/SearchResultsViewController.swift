@@ -15,7 +15,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     var api: APIController?
     
     @IBOutlet var appsTableView : UITableView
-   // var selectedAlbum: Album?
     
     var albums: Album[] = []
     var imageCache = Dictionary<String, UIImage>()
@@ -136,9 +135,9 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                     itemURL = result["trackViewUrl"] as? String
                 }
                 
-                var collectionID = result["collectionId"] as? Int
+                var collectionId = result["collectionId"] as? Int
                 
-                var newAlbum = Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL!, largeImageURL: imageURL!, itemURL: itemURL!, artistURL: artistURL!, collectionID: collectionID!)
+                var newAlbum = Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL!, largeImageURL: imageURL!, itemURL: itemURL!, artistURL: artistURL!, collectionId: collectionId!)
                 albums.append(newAlbum)
             }
             

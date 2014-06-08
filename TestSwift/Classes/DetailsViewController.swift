@@ -8,13 +8,14 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, APIControllerProtocol {
     
     @IBOutlet var albumCover : UIImageView
     @IBOutlet var titleLabel : UILabel
     
     var album: Album?
     var tracks: Track[] = []
+    var api: APIController?
     
     init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
@@ -24,6 +25,17 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         titleLabel.text = self.album?.title
         albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.album?.largeImageURL)))
+        
+        // Load in tracks
+        self.api = APIController(delegate: self)
+        let api = self.api!
+        if self.album?.collectionId? {
+            api.lookupTrack(self.album!.collectionId!)
+        }
+    }
+    
+    func didRecieveAPIResults(results: NSDictionary) {
+        println("Got track deets \(results)")
     }
     
     

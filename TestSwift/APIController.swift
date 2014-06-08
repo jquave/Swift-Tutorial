@@ -24,6 +24,7 @@ class APIController {
         let url = NSURL(string: path)
         let request = NSURLRequest(URL: url)
         
+        println("Get \(path)")
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
             if error? {
                 println("ERROR: \(error.localizedDescription)")
@@ -49,12 +50,11 @@ class APIController {
         
         // Now escape anything else that isn't URL-friendly
         let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        let urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
-        get(urlPath)
+        get("https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album")
     }
     
-    func lookupTrackWithID(trackID: String) {
-        
+    func lookupTrack(collectionId: Int) {
+        get("https://itunes.apple.com/lookup?id=\(collectionId)&entity=song")
     }
     
 }

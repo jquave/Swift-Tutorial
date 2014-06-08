@@ -14,15 +14,15 @@ class Album {
     var largeImageURL: String?
     var itemURL: String?
     var artistURL: String?
-    var collectionID: Int?
+    var collectionId: Int?
     
-    init(name: String!, price: String!, thumbnailImageURL: String!, largeImageURL: String!, itemURL: String!, artistURL: String!, collectionID: Int?) {
+    init(name: String!, price: String!, thumbnailImageURL: String!, largeImageURL: String!, itemURL: String!, artistURL: String!, collectionId: Int?) {
         self.title = name
         self.price = price
         self.thumbnailImageURL = thumbnailImageURL
         self.largeImageURL = largeImageURL
         self.itemURL = itemURL
         self.artistURL = artistURL
-        self.collectionID = collectionID
+        self.collectionId = collectionId
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, APIControllerProtocol {
     
@@ -87,8 +88,18 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return tracks.count
     }
     
+    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        
+        UIView.beginAnimations("animInCell", context: nil)
+        cell.layer.transform = CATransform3DMakeScale(1,1,1)
+        UIView.commitAnimations()
+    }
+
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         var cell = tableView.dequeueReusableCellWithIdentifier("TrackCell") as TrackCell
+        
         
         var track = tracks[indexPath.row]
         cell.titleLabel.text = track.title

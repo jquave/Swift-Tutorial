@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
  
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
@@ -39,6 +40,13 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         return albums.count
     }
     
+    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        
+        UIView.beginAnimations("animInCell", context: nil)
+        cell.layer.transform = CATransform3DMakeScale(1,1,1)
+        UIView.commitAnimations()
+    }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         

@@ -22,11 +22,12 @@ class APIController {
     }
     
     func get(path: String) {
-        var sn = SwiftNetworking()
-        sn.get(path, completionHandler: {(result: AnyObject) -> Void in
+        SwiftNetworkingClient.get("derp.").onComplete({result -> Void in
             if let dict = result as? NSDictionary {
                 self.delegate?.didRecieveAPIResults(dict)
             }
+        }).onError({error -> Void in
+            println("ERROR RECEIVED")
         })
     }
     

@@ -21,6 +21,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		021E1B2B1944FCF700FDC37C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 021E1B261944FCF700FDC37C /* SwiftNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 021E1AFE1944F5A300FDC37C;
+			remoteInfo = SwiftNetworking;
+		};
+		021E1B2D1944FCF700FDC37C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 021E1B261944FCF700FDC37C /* SwiftNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 021E1B091944F5A400FDC37C;
+			remoteInfo = SwiftNetworkingTests;
+		};
+		021E1B2F1944FD1500FDC37C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 021E1B261944FCF700FDC37C /* SwiftNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 021E1AFD1944F5A300FDC37C;
+			remoteInfo = SwiftNetworking;
+		};
 		02CCF4B5193D16930069AEE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02CCF49A193D16930069AEE9 /* Project object */;
@@ -33,6 +54,7 @@
 /* Begin PBXFileReference section */
 		021E1AEE1944CDDE00FDC37C /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Track.swift; path = Classes/Track.swift; sourceTree = "<group>"; };
 		021E1AF01944D4A800FDC37C /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		021E1B261944FCF700FDC37C /* SwiftNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftNetworking.xcodeproj; path = ../../SwiftNetworking/SwiftNetworking.xcodeproj; sourceTree = "<group>"; };
 		022889EE193FC3AC00D729A0 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Classes/DetailsViewController.swift; sourceTree = "<group>"; };
 		022889F0193FD6C000D729A0 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Album.swift; path = Classes/Album.swift; sourceTree = "<group>"; };
 		0229AE62193F97EF00BCED97 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
@@ -103,6 +125,15 @@
 			name = Graphics;
 			sourceTree = "<group>";
 		};
+		021E1B271944FCF700FDC37C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				021E1B2C1944FCF700FDC37C /* SwiftNetworking.framework */,
+				021E1B2E1944FCF700FDC37C /* SwiftNetworkingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		02CCF499193D16930069AEE9 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +155,7 @@
 		02CCF4A4193D16930069AEE9 /* TestSwift */ = {
 			isa = PBXGroup;
 			children = (
+				021E1B261944FCF700FDC37C /* SwiftNetworking.xcodeproj */,
 				021E1AED1944CCA800FDC37C /* Graphics */,
 				021E1AEC1944CC9500FDC37C /* REST */,
 				021E1AEB1944CC8D00FDC37C /* Model */,
@@ -175,6 +207,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				021E1B301944FD1500FDC37C /* PBXTargetDependency */,
 			);
 			name = TestSwift;
 			productName = TestSwift;
@@ -228,6 +261,12 @@
 			mainGroup = 02CCF499193D16930069AEE9;
 			productRefGroup = 02CCF4A3193D16930069AEE9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 021E1B271944FCF700FDC37C /* Products */;
+					ProjectRef = 021E1B261944FCF700FDC37C /* SwiftNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				02CCF4A1193D16930069AEE9 /* TestSwift */,
@@ -235,6 +274,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		021E1B2C1944FCF700FDC37C /* SwiftNetworking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftNetworking.framework;
+			remoteRef = 021E1B2B1944FCF700FDC37C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		021E1B2E1944FCF700FDC37C /* SwiftNetworkingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftNetworkingTests.xctest;
+			remoteRef = 021E1B2D1944FCF700FDC37C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		02CCF4A0193D16930069AEE9 /* Resources */ = {
@@ -282,6 +338,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		021E1B301944FD1500FDC37C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftNetworking;
+			targetProxy = 021E1B2F1944FD1500FDC37C /* PBXContainerItemProxy */;
+		};
 		02CCF4B6193D16930069AEE9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 02CCF4A1193D16930069AEE9 /* TestSwift */;
@@ -386,9 +447,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jquave/Code/libs,
+				);
 				INFOPLIST_FILE = TestSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = /Users/jquave/Code/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestSwift/TestSwift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -401,9 +467,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jquave/Code/libs,
+				);
 				INFOPLIST_FILE = TestSwift/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = /Users/jquave/Code/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TestSwift/TestSwift-Bridging-Header.h";
 			};

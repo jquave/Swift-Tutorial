@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+
+        var sn = SwiftNetworking()
+        
+        var params = ["user\"name":"jquave","password":"myPass"]
+        sn.post("http://localhost:3000/api/register", params: params, completionHandler: {(result: AnyObject) -> Void in
+            println(result)
+        })
+        
+        
+        
+        sn.get("", completionHandler: {(result: AnyObject) -> Void in
+            if let dict = result as? NSDictionary {
+            }
+        })
         
         return true
     }

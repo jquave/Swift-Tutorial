@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftNetworking
 
 protocol APIControllerProtocol {
     func didRecieveAPIResults(results: NSDictionary)
@@ -21,25 +22,10 @@ class APIController {
     }
     
     func get(path: String) {
-        let url = NSURL(string: path)
-        let request = NSURLRequest(URL: url)
-        
-        println("Get \(path)")
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
-            if error? {
-                println("ERROR: \(error.localizedDescription)")
-            }
-            else {
-                var error: NSError?
-                let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
-                // Now send the JSON result to our delegate object
-                if error? {
-                    println("HTTP Error: \(error?.localizedDescription)")
-                }
-                else {
-                    println("Results recieved")
-                    self.delegate?.didRecieveAPIResults(jsonResult)
-                }
+        var sn = SwiftNetworking()
+        sn.get(path, completionHandler: {(result: AnyObject) -> Void in
+            if let dict = result as? NSDictionary {
+                self.delegate?.didRecieveAPIResults(dict)
             }
         })
     }

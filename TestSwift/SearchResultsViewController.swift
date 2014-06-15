@@ -43,21 +43,20 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         cell.text = cellText
         cell.image = UIImage(named: "Blank52")
 
-        
         // Get the formatted price string for display in the subtitle
         var formattedPrice: NSString = rowData["formattedPrice"] as NSString
         
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            // Jump in to a background thread to get the image for this item
-            
-            // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
-            var urlString: NSString = rowData["artworkUrl60"] as NSString
-            
-            // Check our image cache for the existing key. This is just a dictionary of UIImages
-            var image: UIImage? = self.imageCache.valueForKey(urlString) as? UIImage
-
-            if( !image? ) {
-                // If the image does not exist, we need to download it
+        // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
+        var urlString: NSString = rowData["artworkUrl60"] as NSString
+        
+        // Check our image cache for the existing key. This is just a dictionary of UIImages
+        var image: UIImage? = self.imageCache.valueForKey(urlString) as? UIImage
+        
+        if( !image? ) {
+            // If the image does not exist, we need to download it
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                // Jump in to a background thread to get the image for this item
+                
                 var imgURL: NSURL = NSURL(string: urlString)
                 
                 // Download an NSData representation of the image at the URL
@@ -75,15 +74,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                     else {
                         println("Error: \(error.localizedDescription)")
                     }
+                    })
                 })
-
-            }
-            else {
-                cell.image = image
-            }
-            
-            
-        })
+        }
+        else {
+            cell.image = image
+        }
 
         tableView.indexPathForCell(cell)
 

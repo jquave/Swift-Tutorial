@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
@@ -147,16 +148,25 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                     itemURL = result["trackViewUrl"] as? String
                 }
                 
-                var newAlbum = Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL!, largeImageURL: imageURL!, itemURL: itemURL!, artistURL: artistURL!)
+                var collectionId = result["collectionId"] as? Int
+                var newAlbum = Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL!, largeImageURL: imageURL!, itemURL: itemURL!, artistURL: artistURL!, collectionId: collectionId!)
                 albums.append(newAlbum)
             }
             
+            dispatch_async(dispatch_get_main_queue(), {
+                self.appsTableView.reloadData()
+            })
             
-            self.appsTableView.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         }
     }
-
+    
+    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animateWithDuration(0.25, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
+    }
 
 }
 

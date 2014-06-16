@@ -27,7 +27,15 @@ class APIController: NSObject {
         // Now escape anything else that isn't URL-friendly
         let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
         let urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
-        let url = NSURL(string: urlPath)
+        get(urlPath)
+    }
+    
+    func lookupAlbum(collectionId: Int) {
+        get("https://itunes.apple.com/lookup?id=\(collectionId)&entity=song")
+    }
+    
+    func get(path: String) {
+        let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
             println("Task completed")

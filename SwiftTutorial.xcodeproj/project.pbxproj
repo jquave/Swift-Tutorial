@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021C0E56194F506F0005B787 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021C0E55194F506F0005B787 /* Track.swift */; };
+		021C0E58194F51610005B787 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021C0E57194F51610005B787 /* TrackCell.swift */; };
 		0256BB50194F3F38003E2942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256BB4F194F3F38003E2942 /* AppDelegate.swift */; };
 		0256BB52194F3F38003E2942 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256BB51194F3F38003E2942 /* SearchResultsViewController.swift */; };
 		0256BB55194F3F38003E2942 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0256BB53194F3F38003E2942 /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		021C0E55194F506F0005B787 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		021C0E57194F51610005B787 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		0256BB4A194F3F38003E2942 /* SwiftTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0256BB4E194F3F38003E2942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0256BB4F194F3F38003E2942 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 				0256BB6C194F41F5003E2942 /* APIController.swift */,
 				0256BB70194F4A9F003E2942 /* Album.swift */,
 				0256BB72194F4B47003E2942 /* DetailsViewController.swift */,
+				021C0E55194F506F0005B787 /* Track.swift */,
+				021C0E57194F51610005B787 /* TrackCell.swift */,
 			);
 			path = SwiftTutorial;
 			sourceTree = "<group>";
@@ -221,11 +227,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				021C0E58194F51610005B787 /* TrackCell.swift in Sources */,
 				0256BB52194F3F38003E2942 /* SearchResultsViewController.swift in Sources */,
 				0256BB50194F3F38003E2942 /* AppDelegate.swift in Sources */,
 				0256BB6D194F41F5003E2942 /* APIController.swift in Sources */,
 				0256BB71194F4A9F003E2942 /* Album.swift in Sources */,
 				0256BB73194F4B47003E2942 /* DetailsViewController.swift in Sources */,
+				021C0E56194F506F0005B787 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +421,7 @@
 				0256BB68194F3F38003E2942 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0256BB69194F3F38003E2942 /* Build configuration list for PBXNativeTarget "SwiftTutorialTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +430,7 @@
 				0256BB6B194F3F38003E2942 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

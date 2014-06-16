@@ -92,7 +92,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
-    func didRecieveAPIResults(results: NSDictionary) {
+    func didReceiveAPIResults(results: NSDictionary) {
         // Store the results in our table data array
         if results.count>0 {
             self.tableData = results["results"] as NSArray

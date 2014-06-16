@@ -9,7 +9,7 @@
 import UIKit
 
 protocol APIControllerProtocol {
-    func didRecieveAPIResults(results: NSDictionary)
+    func didReceiveAPIResults(results: NSDictionary)
 }
 
 class APIController: NSObject {
@@ -39,12 +39,12 @@ class APIController: NSObject {
     
     
     func connection(didReceiveResponse: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
-        // Recieved a new request, clear out the data object
+        // Received a new request, clear out the data object
         self.data = NSMutableData()
     }
     
     func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
-        // Append the recieved chunk of data to our data object
+        // Append the received chunk of data to our data object
         self.data.appendData(data)
     }
     
@@ -55,7 +55,7 @@ class APIController: NSObject {
         var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
         
         // Now send the JSON result to our delegate object
-        delegate?.didRecieveAPIResults(jsonResult)
+        delegate?.didReceiveAPIResults(jsonResult)
     }
     
    

@@ -14,6 +14,8 @@
 		0256BB63194F3F38003E2942 /* SwiftTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256BB62194F3F38003E2942 /* SwiftTutorialTests.swift */; };
 		0256BB6D194F41F5003E2942 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256BB6C194F41F5003E2942 /* APIController.swift */; };
 		0256BB6F194F4852003E2942 /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 0256BB6E194F4852003E2942 /* Blank52.png */; };
+		0256BB71194F4A9F003E2942 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256BB70194F4A9F003E2942 /* Album.swift */; };
+		0256BB73194F4B47003E2942 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256BB72194F4B47003E2942 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		0256BB62194F3F38003E2942 /* SwiftTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTutorialTests.swift; sourceTree = "<group>"; };
 		0256BB6C194F41F5003E2942 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		0256BB6E194F4852003E2942 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
+		0256BB70194F4A9F003E2942 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		0256BB72194F4B47003E2942 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				0256BB56194F3F38003E2942 /* Images.xcassets */,
 				0256BB4D194F3F38003E2942 /* Supporting Files */,
 				0256BB6C194F41F5003E2942 /* APIController.swift */,
+				0256BB70194F4A9F003E2942 /* Album.swift */,
+				0256BB72194F4B47003E2942 /* DetailsViewController.swift */,
 			);
 			path = SwiftTutorial;
 			sourceTree = "<group>";
@@ -218,6 +224,8 @@
 				0256BB52194F3F38003E2942 /* SearchResultsViewController.swift in Sources */,
 				0256BB50194F3F38003E2942 /* AppDelegate.swift in Sources */,
 				0256BB6D194F41F5003E2942 /* APIController.swift in Sources */,
+				0256BB71194F4A9F003E2942 /* Album.swift in Sources */,
+				0256BB73194F4B47003E2942 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

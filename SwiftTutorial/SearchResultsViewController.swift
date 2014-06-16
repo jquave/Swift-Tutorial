@@ -32,15 +32,15 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
-        var detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
-        var albumIndex = appsTableView.indexPathForSelectedRow().row
-        var selectedAlbum = self.albums[albumIndex]
+        let detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
+        let albumIndex = appsTableView.indexPathForSelectedRow().row
+        let selectedAlbum = self.albums[albumIndex]
         detailsViewController.album = selectedAlbum
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
         
         // Find this cell's album by passing in the indexPath.row to the subscript method for an array of type Album[]
         let album = self.albums[indexPath.row]
@@ -60,7 +60,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             
             if( !image? ) {
                 // If the image does not exist, we need to download it
-                let imgURL: NSURL = NSURL(string: urlString)
+                let imgURL = NSURL(string: urlString)
                 
                 // Download an NSData representation of the image at the URL
                 let request: NSURLRequest = NSURLRequest(URL: imgURL)

@@ -22,14 +22,14 @@ class APIController: NSObject {
     func searchItunesFor(searchTerm: String) {
         
         // The iTunes API wants multiple terms separated by + symbols, so replace spaces with + signs
-        var itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
+        let itunesSearchTerm = searchTerm.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil)
         
         // Now escape anything else that isn't URL-friendly
-        var escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-        var urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
-        var url: NSURL = NSURL(string: urlPath)
-        var session = NSURLSession.sharedSession()
-        var task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
+        let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        let urlPath = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&media=music&entity=album"
+        let url = NSURL(string: urlPath)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
             println("Task completed")
             if(error) {
                 // If there is an error in the web request, print it to the console
@@ -41,7 +41,7 @@ class APIController: NSObject {
                 // If there is an error parsing JSON, print it to the console
                 println("JSON Error \(err!.localizedDescription)")
             }
-            var results: NSArray = jsonResult["results"] as NSArray
+            var results = jsonResult["results"] as NSArray
             // Now send the JSON result to our delegate object
             self.delegate?.didReceiveAPIResults(jsonResult)
             })

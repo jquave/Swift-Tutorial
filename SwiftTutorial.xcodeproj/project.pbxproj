@@ -13,6 +13,7 @@
 		0256BB57194F3F38003E2942 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0256BB56194F3F38003E2942 /* Images.xcassets */; };
 		0256BB63194F3F38003E2942 /* SwiftTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256BB62194F3F38003E2942 /* SwiftTutorialTests.swift */; };
 		0256BB6D194F41F5003E2942 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0256BB6C194F41F5003E2942 /* APIController.swift */; };
+		0256BB6F194F4852003E2942 /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 0256BB6E194F4852003E2942 /* Blank52.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		0256BB61194F3F38003E2942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0256BB62194F3F38003E2942 /* SwiftTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTutorialTests.swift; sourceTree = "<group>"; };
 		0256BB6C194F41F5003E2942 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		0256BB6E194F4852003E2942 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		0256BB4C194F3F38003E2942 /* SwiftTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				0256BB6E194F4852003E2942 /* Blank52.png */,
 				0256BB4F194F3F38003E2942 /* AppDelegate.swift */,
 				0256BB51194F3F38003E2942 /* SearchResultsViewController.swift */,
 				0256BB53194F3F38003E2942 /* Main.storyboard */,
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0256BB6F194F4852003E2942 /* Blank52.png in Resources */,
 				0256BB55194F3F38003E2942 /* Main.storyboard in Resources */,
 				0256BB57194F3F38003E2942 /* Images.xcassets in Resources */,
 			);

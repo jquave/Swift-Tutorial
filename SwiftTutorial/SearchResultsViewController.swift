@@ -11,17 +11,18 @@ import UIKit
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
     @IBOutlet var appsTableView : UITableView
+    
+    let api: APIController = APIController()
+    let imageCache = NSMutableDictionary()
     var tableData: NSArray = []
-    var api: APIController = APIController()
-    var imageCache = NSMutableDictionary()
-    let kCellIdentifier = "SearchResultCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         self.api.delegate = self
-        api.searchItunesFor("Angry Birds")
+        self.api.searchItunesFor("Angry Birds")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -94,12 +95,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         // Get the row data for the selected row
-        var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
+        let rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
         
-        var name: String = rowData["trackName"] as String
-        var formattedPrice: String = rowData["formattedPrice"] as String
+        let name: String = rowData["trackName"] as String
+        let formattedPrice: String = rowData["formattedPrice"] as String
         
-        var alert: UIAlertView = UIAlertView()
+        let alert: UIAlertView = UIAlertView()
         alert.title = name
         alert.message = formattedPrice
         alert.addButtonWithTitle("Ok")
@@ -107,13 +108,11 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func didReceiveAPIResults(results: NSDictionary) {
-        var resultsArr: NSArray = results["results"] as NSArray
+        let resultsArr: NSArray = results["results"] as NSArray
         dispatch_async(dispatch_get_main_queue(), {
             self.tableData = resultsArr
             self.appsTableView.reloadData()
         })
     }
 
-
 }
-

@@ -33,61 +33,54 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("SearchResultCell") as UITableViewCell
         
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kCellIdentifier)
-        }
-        
-        var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
-        
-        // Add a check to make sure this exists
-        let cellText: String? = rowData["trackName"] as? String
-        cell.text = cellText
-        cell.image = UIImage(named: "Blank52")
-        
+        let rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
         
         // Get the formatted price string for display in the subtitle
-        var formattedPrice: NSString = rowData["formattedPrice"] as NSString
+        let formattedPrice: String = rowData["formattedPrice"] as String
         
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            // Jump in to a background thread to get the image for this item
+        // Add a check to make sure this exists
+        let cellText: String = rowData["trackName"] as String
+        
+        // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
+        let urlString: String = rowData["artworkUrl60"] as String
+        
+        // Check our image cache for the existing key. This is just a dictionary of UIImages
+        var image: UIImage? = self.imageCache.valueForKey(urlString) as? UIImage
+        
+        if image? {
+            // If image has found in cache set it immediately
+            cell.image = image
+        } else {
+            // Set placeholder image until loading original from the web
+            cell.image = UIImage(named: "Blank52")
             
-            // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
-            var urlString: NSString = rowData["artworkUrl60"] as NSString
-            
-            // Check our image cache for the existing key. This is just a dictionary of UIImages
-            var image: UIImage? = self.imageCache.valueForKey(urlString) as? UIImage
-            
-            if( !image? ) {
-                // If the image does not exist, we need to download it
-                var imgURL: NSURL = NSURL(string: urlString)
-                
-                // Download an NSData representation of the image at the URL
-                var request: NSURLRequest = NSURLRequest(URL: imgURL)
-                var urlConnection: NSURLConnection = NSURLConnection(request: request, delegate: self)
-                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
-                    if !error? {
-                        //var imgData: NSData = NSData(contentsOfURL: imgURL)
-                        image = UIImage(data: data)
-                        
+            // If the image does not exist, we need to download it
+            let url: NSURL = NSURL(string: urlString)
+            let session = NSURLSession.sharedSession()
+
+            // Download an NSData representation of the image at the URL
+            let task = session.dataTaskWithURL(url, completionHandler: { data, response, error -> Void in
+                if error {
+                    // If there is an error in the web request, print it to the console
+                    println(error.localizedDescription)
+                } else {
+                    image = UIImage(data: data)
+                    dispatch_async(dispatch_get_main_queue(), {
                         // Store the image in to our cache
-                        self.imageCache.setValue(image, forKey: urlString)
-                        cell.image = image
-                    }
-                    else {
-                        println("Error: \(error.localizedDescription)")
-                    }
+                        self.imageCache[urlString] = image
+                        // Set loaded image instead previously set placeholder
+                        if let ownCell = tableView.cellForRowAtIndexPath(indexPath) {
+                            ownCell.image = image
+                        }
                     })
-                
-            }
-            else {
-                cell.image = image
-            }
-            
-            
+                }
             })
+            task.resume()
+        }
         
+        cell.text = cellText
         cell.detailTextLabel.text = formattedPrice
         
         return cell

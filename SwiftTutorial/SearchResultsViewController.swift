@@ -12,7 +12,7 @@ import QuartzCore
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
     @IBOutlet var appsTableView : UITableView
-    var albums: Album[] = []
+    var albums: [Album] = []
     @lazy var api: APIController = APIController(delegate: self)
     var imageCache = NSMutableDictionary()
     let kCellIdentifier = "SearchResultCell"
@@ -45,8 +45,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         // Find this cell's album by passing in the indexPath.row to the subscript method for an array of type Album[]
         let album = self.albums[indexPath.row]
-        cell.text = album.title
-        cell.image = UIImage(named: "Blank52")
+        cell.textLabel.text = album.title
+        cell.imageView.image = UIImage(named: "Blank52")
         cell.detailTextLabel.text = album.price
         
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
@@ -79,7 +79,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                         // Ctrl+Click on the method name to see how it's defined, including the following comment:
                         /** // returns nil if cell is not visible or index path is out of range **/
                         if let albumArtsCell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath) {
-                            albumArtsCell!.image = image
+                            albumArtsCell!.imageView.image = image
                         }
                     }
                     else {
@@ -89,7 +89,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                 
             }
             else {
-                cell.image = image
+                cell.imageView.image = image
             }
             
             
@@ -114,8 +114,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     func didReceiveAPIResults(results: NSDictionary) {
         // Store the results in our table data array
         if results.count>0 {
-            
-            let allResults: NSDictionary[] = results["results"] as NSDictionary[]
+			
+            let allResults: [NSDictionary] = results["results"] as [NSDictionary]
             
             // Sometimes iTunes returns a collection, not a track, so we check both for the 'name'
             for result: NSDictionary in allResults {

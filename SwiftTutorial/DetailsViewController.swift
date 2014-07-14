@@ -13,7 +13,7 @@ import QuartzCore
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, APIControllerProtocol {
     
     var mediaPlayer: MPMoviePlayerController = MPMoviePlayerController()
-    var tracks: Track[] = []
+    var tracks: [Track] = []
     
     @IBOutlet var albumCover : UIImageView
     @IBOutlet var titleLabel : UILabel
@@ -39,7 +39,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func didReceiveAPIResults(results: NSDictionary) {
-        if let allResults = results["results"] as? NSDictionary[] {
+        if let allResults = results["results"] as? [NSDictionary] {
             for trackInfo in allResults {
                 // Create the track
                 if let kind = trackInfo["kind"] as? String {
@@ -75,7 +75,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         mediaPlayer.contentURL = NSURL(string: track.previewUrl)
         mediaPlayer.play()
         if let cell = tableView.cellForRowAtIndexPath(indexPath) as? TrackCell {
-            cell.playIcon.text = "YOUR_STOP_ICON"
+            cell.playIcon.text = "⛔️"
         }
     }
     

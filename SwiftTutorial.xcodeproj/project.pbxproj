@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		020BE45019A71EB3006C3E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BE44F19A71EB3006C3E0B /* AppDelegate.swift */; };
-		020BE45219A71EB3006C3E0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BE45119A71EB3006C3E0B /* ViewController.swift */; };
+		020BE45219A71EB3006C3E0B /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BE45119A71EB3006C3E0B /* SearchResultsViewController.swift */; };
 		020BE45519A71EB3006C3E0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 020BE45319A71EB3006C3E0B /* Main.storyboard */; };
 		020BE45719A71EB3006C3E0B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020BE45619A71EB3006C3E0B /* Images.xcassets */; };
 		020BE46319A71EB3006C3E0B /* SwiftTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BE46219A71EB3006C3E0B /* SwiftTutorialTests.swift */; };
+		020BE46D19A721FF006C3E0B /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BE46C19A721FF006C3E0B /* APIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +29,13 @@
 		020BE44A19A71EB3006C3E0B /* SwiftTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		020BE44E19A71EB3006C3E0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		020BE44F19A71EB3006C3E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		020BE45119A71EB3006C3E0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		020BE45119A71EB3006C3E0B /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		020BE45419A71EB3006C3E0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		020BE45619A71EB3006C3E0B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		020BE45C19A71EB3006C3E0B /* SwiftTutorialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTutorialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		020BE46119A71EB3006C3E0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		020BE46219A71EB3006C3E0B /* SwiftTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTutorialTests.swift; sourceTree = "<group>"; };
+		020BE46C19A721FF006C3E0B /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +77,9 @@
 		020BE44C19A71EB3006C3E0B /* SwiftTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				020BE46C19A721FF006C3E0B /* APIController.swift */,
 				020BE44F19A71EB3006C3E0B /* AppDelegate.swift */,
-				020BE45119A71EB3006C3E0B /* ViewController.swift */,
+				020BE45119A71EB3006C3E0B /* SearchResultsViewController.swift */,
 				020BE45319A71EB3006C3E0B /* Main.storyboard */,
 				020BE45619A71EB3006C3E0B /* Images.xcassets */,
 				020BE44D19A71EB3006C3E0B /* Supporting Files */,
@@ -208,8 +211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				020BE45219A71EB3006C3E0B /* ViewController.swift in Sources */,
+				020BE45219A71EB3006C3E0B /* SearchResultsViewController.swift in Sources */,
 				020BE45019A71EB3006C3E0B /* AppDelegate.swift in Sources */,
+				020BE46D19A721FF006C3E0B /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

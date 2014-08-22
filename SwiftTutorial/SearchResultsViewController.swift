@@ -10,6 +10,8 @@ import UIKit
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
+    let kCellIdentifier: String = "SearchResultCell"
+    
     @IBOutlet var appsTableView : UITableView?
     var tableData = []
     var api = APIController()
@@ -26,7 +28,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
         
         let rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
         
@@ -54,6 +56,20 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             self.tableData = resultsArr
             self.appsTableView!.reloadData()
         })
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        // Get the row data for the selected row
+        var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
+        
+        var name: String = rowData["trackName"] as String
+        var formattedPrice: String = rowData["formattedPrice"] as String
+        
+        var alert: UIAlertView = UIAlertView()
+        alert.title = name
+        alert.message = formattedPrice
+        alert.addButtonWithTitle("Ok")
+        alert.show()
     }
 
 

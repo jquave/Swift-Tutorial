@@ -13,6 +13,7 @@
 		020BE45719A71EB3006C3E0B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020BE45619A71EB3006C3E0B /* Images.xcassets */; };
 		020BE46319A71EB3006C3E0B /* SwiftTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BE46219A71EB3006C3E0B /* SwiftTutorialTests.swift */; };
 		020BE46D19A721FF006C3E0B /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BE46C19A721FF006C3E0B /* APIController.swift */; };
+		020BE46F19A7265F006C3E0B /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 020BE46E19A7265F006C3E0B /* Blank52.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		020BE46119A71EB3006C3E0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		020BE46219A71EB3006C3E0B /* SwiftTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTutorialTests.swift; sourceTree = "<group>"; };
 		020BE46C19A721FF006C3E0B /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		020BE46E19A7265F006C3E0B /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		020BE44C19A71EB3006C3E0B /* SwiftTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				020BE46E19A7265F006C3E0B /* Blank52.png */,
 				020BE46C19A721FF006C3E0B /* APIController.swift */,
 				020BE44F19A71EB3006C3E0B /* AppDelegate.swift */,
 				020BE45119A71EB3006C3E0B /* SearchResultsViewController.swift */,
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020BE46F19A7265F006C3E0B /* Blank52.png in Resources */,
 				020BE45519A71EB3006C3E0B /* Main.storyboard in Resources */,
 				020BE45719A71EB3006C3E0B /* Images.xcassets in Resources */,
 			);

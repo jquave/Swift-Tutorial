@@ -9,7 +9,8 @@
 import UIKit
 import QuartzCore
 
-class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
+class SearchResultsViewController: UIViewController, UITableViewDelegate, APIControllerProtocol {
+    
     
     let kCellIdentifier: String = "SearchResultCell"
     
@@ -28,18 +29,17 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     /// MARK: UITableViewDataSource, UITableViewDelegate methods
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return albums.count
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell! {
         
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
         
         let album = self.albums[indexPath.row]
-        cell.textLabel.text = album.title
-        cell.imageView.image = UIImage(named: "Blank52")
+        cell.textLabel?.text = album.title
+        cell.imageView?.image = UIImage(named: "Blank52")
         
         // Get the formatted price string for display in the subtitle
         let formattedPrice = album.price
@@ -64,7 +64,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                     // Store the image in to our cache
                     self.imageCache[urlString] = image
                     if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                        cellToUpdate.imageView.image = image
+                        cellToUpdate.imageView?.image = image
                     }
                 }
                 else {
@@ -76,12 +76,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         else {
             dispatch_async(dispatch_get_main_queue(), {
                 if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                    cellToUpdate.imageView.image = image
+                    cellToUpdate.imageView?.image = image
                 }
             })
         }
         
-        cell.detailTextLabel.text = formattedPrice
+        cell.detailTextLabel?.text = formattedPrice
         
         return cell
     }
@@ -96,12 +96,13 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         })
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
-        var albumIndex = appsTableView!.indexPathForSelectedRow().row
-        var selectedAlbum = self.albums[albumIndex]
+        var albumIndex = appsTableView?.indexPathForSelectedRow()?.row
+        var selectedAlbum = self.albums[albumIndex!]
         detailsViewController.album = selectedAlbum
     }
+    
 
     func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
         cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)

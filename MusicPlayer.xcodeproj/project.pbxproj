@@ -17,6 +17,8 @@
 		0270482B19C8EC3000FDA1C5 /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 0270482A19C8EC3000FDA1C5 /* Blank52.png */; };
 		0270482D19C8F35700FDA1C5 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270482C19C8F35700FDA1C5 /* Album.swift */; };
 		0270482F19C8F43500FDA1C5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270482E19C8F43500FDA1C5 /* DetailsViewController.swift */; };
+		0270483119C8F6D000FDA1C5 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270483019C8F6D000FDA1C5 /* Track.swift */; };
+		0270483519C8F80000FDA1C5 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270483419C8F80000FDA1C5 /* TrackCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		0270482A19C8EC3000FDA1C5 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
 		0270482C19C8F35700FDA1C5 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		0270482E19C8F43500FDA1C5 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		0270483019C8F6D000FDA1C5 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		0270483419C8F80000FDA1C5 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 				0270482819C8E2E700FDA1C5 /* APIController.swift */,
 				0270482C19C8F35700FDA1C5 /* Album.swift */,
 				0270482E19C8F43500FDA1C5 /* DetailsViewController.swift */,
+				0270483019C8F6D000FDA1C5 /* Track.swift */,
+				0270483419C8F80000FDA1C5 /* TrackCell.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -225,11 +231,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0270483519C8F80000FDA1C5 /* TrackCell.swift in Sources */,
 				0270480B19C8E08B00FDA1C5 /* SearchResultsViewController.swift in Sources */,
 				0270480919C8E08B00FDA1C5 /* AppDelegate.swift in Sources */,
 				0270482919C8E2E700FDA1C5 /* APIController.swift in Sources */,
 				0270482D19C8F35700FDA1C5 /* Album.swift in Sources */,
 				0270482F19C8F43500FDA1C5 /* DetailsViewController.swift in Sources */,
+				0270483119C8F6D000FDA1C5 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

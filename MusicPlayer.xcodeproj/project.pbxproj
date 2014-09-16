@@ -15,6 +15,8 @@
 		0270481F19C8E08B00FDA1C5 /* MusicPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270481E19C8E08B00FDA1C5 /* MusicPlayerTests.swift */; };
 		0270482919C8E2E700FDA1C5 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270482819C8E2E700FDA1C5 /* APIController.swift */; };
 		0270482B19C8EC3000FDA1C5 /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 0270482A19C8EC3000FDA1C5 /* Blank52.png */; };
+		0270482D19C8F35700FDA1C5 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270482C19C8F35700FDA1C5 /* Album.swift */; };
+		0270482F19C8F43500FDA1C5 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0270482E19C8F43500FDA1C5 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		0270481E19C8E08B00FDA1C5 /* MusicPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerTests.swift; sourceTree = "<group>"; };
 		0270482819C8E2E700FDA1C5 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		0270482A19C8EC3000FDA1C5 /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
+		0270482C19C8F35700FDA1C5 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		0270482E19C8F43500FDA1C5 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				0270481119C8E08B00FDA1C5 /* LaunchScreen.xib */,
 				0270480619C8E08B00FDA1C5 /* Supporting Files */,
 				0270482819C8E2E700FDA1C5 /* APIController.swift */,
+				0270482C19C8F35700FDA1C5 /* Album.swift */,
+				0270482E19C8F43500FDA1C5 /* DetailsViewController.swift */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -222,6 +228,8 @@
 				0270480B19C8E08B00FDA1C5 /* SearchResultsViewController.swift in Sources */,
 				0270480919C8E08B00FDA1C5 /* AppDelegate.swift in Sources */,
 				0270482919C8E2E700FDA1C5 /* APIController.swift in Sources */,
+				0270482D19C8F35700FDA1C5 /* Album.swift in Sources */,
+				0270482F19C8F43500FDA1C5 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

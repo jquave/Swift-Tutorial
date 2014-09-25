@@ -68,11 +68,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                     
                     // Store the image in to our cache
                     self.imageCache[urlString] = image
-                    dispatch_async(dispatch_get_main_queue(), {
-                        if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                            cellToUpdate.imageView?.image = image
-                        }
-                    })
                 }
                 else {
                     println("Error: \(error.localizedDescription)")
@@ -80,13 +75,12 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             })
             
         }
-        else {
-            dispatch_async(dispatch_get_main_queue(), {
-                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                    cellToUpdate.imageView?.image = image
-                }
-            })
-        }
+
+        dispatch_async(dispatch_get_main_queue(), {
+            if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                cellToUpdate.imageView?.image = image
+            }
+        })
         
         cell.detailTextLabel?.text = formattedPrice
         

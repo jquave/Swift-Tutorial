@@ -32,15 +32,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
         
-        cell.textLabel?.text = rowData["trackName"] as? String
+        cell.textLabel.text = rowData["trackName"] as? String
         
         // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
         let urlString: NSString = rowData["artworkUrl60"] as NSString
-        let imgURL: NSURL = NSURL(string: urlString)
+        let imgURL: NSURL? = NSURL(string: urlString)
         
         // Download an NSData representation of the image at the URL
-        let imgData: NSData = NSData(contentsOfURL: imgURL)
-        cell.imageView?.image = UIImage(data: imgData)
+        let imgData = NSData(contentsOfURL: imgURL!)
+        cell.imageView.image = UIImage(data: imgData!)
         
         // Get the formatted price string for display in the subtitle
         let formattedPrice: NSString = rowData["formattedPrice"] as NSString
@@ -59,9 +59,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Now escape anything else that isn't URL-friendly
         if let escapedSearchTerm = itunesSearchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
             let urlPath = "http://itunes.apple.com/search?term=\(escapedSearchTerm)&media=software"
-            let url: NSURL = NSURL(string: urlPath)
+            let url = NSURL(string: urlPath)
             let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
+            let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
                 println("Task completed")
                 if(error != nil) {
                     // If there is an error in the web request, print it to the console

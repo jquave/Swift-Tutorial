@@ -52,7 +52,7 @@ class Album {
                         var nf: NSNumberFormatter = NSNumberFormatter()
                         nf.maximumFractionDigits = 2
                         if priceFloat != nil {
-                            price = "$"+nf.stringFromNumber(priceFloat!)
+                            price = "$"+nf.stringFromNumber(priceFloat!)!
                         }
                     }
                 }

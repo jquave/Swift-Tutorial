@@ -23,7 +23,7 @@ class APIController {
     func get(path: String) {
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
+        let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
             println("Task completed")
             if(error != nil) {
                 // If there is an error in the web request, print it to the console

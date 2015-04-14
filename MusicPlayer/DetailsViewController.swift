@@ -27,7 +27,7 @@ class DetailsViewController: UIViewController, APIControllerProtocol, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = self.album?.title
-        albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.album!.largeImageURL)))
+        albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.album!.largeImageURL)!)!)
         
         if self.album != nil {
             api.lookupAlbum(self.album!.collectionId)
@@ -40,7 +40,7 @@ class DetailsViewController: UIViewController, APIControllerProtocol, UITableVie
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TrackCell") as TrackCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TrackCell") as! TrackCell
         let track = tracks[indexPath.row]
         cell.titleLabel.text = track.title
         cell.playIcon.text = "▶️"
@@ -67,7 +67,7 @@ class DetailsViewController: UIViewController, APIControllerProtocol, UITableVie
     
     // MARK: APIControllerProtocol
     func didReceiveAPIResults(results: NSDictionary) {
-        var resultsArr: NSArray = results["results"] as NSArray
+        var resultsArr: NSArray = results["results"] as! NSArray
         dispatch_async(dispatch_get_main_queue(), {
             self.tracks = Track.tracksWithJSON(resultsArr)
             self.tracksTableView.reloadData()

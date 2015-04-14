@@ -37,7 +37,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as! UITableViewCell
         
         let album = self.albums[indexPath.row]
         cell.textLabel?.text = album.title
@@ -56,7 +56,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         if( image == nil ) {
             // If the image does not exist, we need to download it
-            var imgURL: NSURL = NSURL(string: urlString)
+            var imgURL: NSURL = NSURL(string: urlString)!
             
             // Download an NSData representation of the image at the URL
             let request: NSURLRequest = NSURLRequest(URL: imgURL)
@@ -100,14 +100,14 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
+        var detailsViewController: DetailsViewController = segue.destinationViewController as! DetailsViewController
         var albumIndex = appsTableView!.indexPathForSelectedRow()!.row
         var selectedAlbum = self.albums[albumIndex]
         detailsViewController.album = selectedAlbum
     }
     
     func didReceiveAPIResults(results: NSDictionary) {
-        var resultsArr: NSArray = results["results"] as NSArray
+        var resultsArr: NSArray = results["results"] as! NSArray
         dispatch_async(dispatch_get_main_queue(), {
             self.albums = Album.albumsWithJSON(resultsArr)
             self.appsTableView!.reloadData()

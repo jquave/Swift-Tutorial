@@ -11,7 +11,9 @@ import UIKit
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol  {
     var tableData = []
     let api = APIController()
+    let kCellIdentifier: String = "SearchResultCell"
     @IBOutlet weak var appsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         api.delegate = self
@@ -28,7 +30,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
+        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as! UITableViewCell
         
         if let rowData: NSDictionary = self.tableData[indexPath.row] as? NSDictionary,
             // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
@@ -55,6 +57,19 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             self.tableData = results
             self.appsTableView!.reloadData()
         })
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Get the row data for the selected row
+        if let rowData = self.tableData[indexPath.row] as? NSDictionary,
+            // Get the name of the track for this row
+            name = rowData["trackName"] as? String,
+            // Get the price of the track on this row
+            formattedPrice = rowData["formattedPrice"] as? String {
+                let alert = UIAlertController(title: name, message: formattedPrice, preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
 
 }

@@ -14,6 +14,7 @@
 		0200616F1AE03E1E0062608B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0200616D1AE03E1E0062608B /* LaunchScreen.xib */; };
 		0200617B1AE03E1E0062608B /* iTunesPreviewTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200617A1AE03E1E0062608B /* iTunesPreviewTutorialTests.swift */; };
 		020061851AE04D190062608B /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020061841AE04D190062608B /* APIController.swift */; };
+		020061871AE057B10062608B /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 020061861AE057B10062608B /* Blank52.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		020061791AE03E1E0062608B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0200617A1AE03E1E0062608B /* iTunesPreviewTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesPreviewTutorialTests.swift; sourceTree = "<group>"; };
 		020061841AE04D190062608B /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		020061861AE057B10062608B /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		020061611AE03E1E0062608B /* iTunesPreviewTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				020061861AE057B10062608B /* Blank52.png */,
 				020061841AE04D190062608B /* APIController.swift */,
 				020061641AE03E1E0062608B /* AppDelegate.swift */,
 				020061661AE03E1E0062608B /* SearchResultsViewController.swift */,
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0200616A1AE03E1E0062608B /* Main.storyboard in Resources */,
+				020061871AE057B10062608B /* Blank52.png in Resources */,
 				0200616F1AE03E1E0062608B /* LaunchScreen.xib in Resources */,
 				0200616C1AE03E1E0062608B /* Images.xcassets in Resources */,
 			);

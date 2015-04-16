@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		020061651AE03E1E0062608B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020061641AE03E1E0062608B /* AppDelegate.swift */; };
-		020061671AE03E1E0062608B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020061661AE03E1E0062608B /* ViewController.swift */; };
+		020061671AE03E1E0062608B /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020061661AE03E1E0062608B /* SearchResultsViewController.swift */; };
 		0200616A1AE03E1E0062608B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 020061681AE03E1E0062608B /* Main.storyboard */; };
 		0200616C1AE03E1E0062608B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0200616B1AE03E1E0062608B /* Images.xcassets */; };
 		0200616F1AE03E1E0062608B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0200616D1AE03E1E0062608B /* LaunchScreen.xib */; };
 		0200617B1AE03E1E0062608B /* iTunesPreviewTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200617A1AE03E1E0062608B /* iTunesPreviewTutorialTests.swift */; };
+		020061851AE04D190062608B /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020061841AE04D190062608B /* APIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +30,14 @@
 		0200615F1AE03E1E0062608B /* iTunesPreviewTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesPreviewTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		020061631AE03E1E0062608B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		020061641AE03E1E0062608B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		020061661AE03E1E0062608B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		020061661AE03E1E0062608B /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		020061691AE03E1E0062608B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0200616B1AE03E1E0062608B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0200616E1AE03E1E0062608B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		020061741AE03E1E0062608B /* iTunesPreviewTutorialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesPreviewTutorialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		020061791AE03E1E0062608B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0200617A1AE03E1E0062608B /* iTunesPreviewTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesPreviewTutorialTests.swift; sourceTree = "<group>"; };
+		020061841AE04D190062608B /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +79,9 @@
 		020061611AE03E1E0062608B /* iTunesPreviewTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				020061841AE04D190062608B /* APIController.swift */,
 				020061641AE03E1E0062608B /* AppDelegate.swift */,
-				020061661AE03E1E0062608B /* ViewController.swift */,
+				020061661AE03E1E0062608B /* SearchResultsViewController.swift */,
 				020061681AE03E1E0062608B /* Main.storyboard */,
 				0200616B1AE03E1E0062608B /* Images.xcassets */,
 				0200616D1AE03E1E0062608B /* LaunchScreen.xib */,
@@ -212,8 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				020061671AE03E1E0062608B /* ViewController.swift in Sources */,
+				020061671AE03E1E0062608B /* SearchResultsViewController.swift in Sources */,
 				020061651AE03E1E0062608B /* AppDelegate.swift in Sources */,
+				020061851AE04D190062608B /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

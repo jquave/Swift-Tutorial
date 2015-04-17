@@ -17,6 +17,8 @@
 		020061871AE057B10062608B /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 020061861AE057B10062608B /* Blank52.png */; };
 		020061891AE081290062608B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020061881AE081290062608B /* Album.swift */; };
 		0200618B1AE084920062608B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200618A1AE084920062608B /* DetailsViewController.swift */; };
+		026F3B761AE157A500AF177E /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026F3B751AE157A500AF177E /* Track.swift */; };
+		026F3B781AE15A8300AF177E /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026F3B771AE15A8300AF177E /* TrackCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		020061861AE057B10062608B /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
 		020061881AE081290062608B /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		0200618A1AE084920062608B /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		026F3B751AE157A500AF177E /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		026F3B771AE15A8300AF177E /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +93,14 @@
 				020061841AE04D190062608B /* APIController.swift */,
 				020061641AE03E1E0062608B /* AppDelegate.swift */,
 				020061661AE03E1E0062608B /* SearchResultsViewController.swift */,
+				0200618A1AE084920062608B /* DetailsViewController.swift */,
 				020061681AE03E1E0062608B /* Main.storyboard */,
 				0200616B1AE03E1E0062608B /* Images.xcassets */,
 				0200616D1AE03E1E0062608B /* LaunchScreen.xib */,
 				020061621AE03E1E0062608B /* Supporting Files */,
 				020061881AE081290062608B /* Album.swift */,
-				0200618A1AE084920062608B /* DetailsViewController.swift */,
+				026F3B751AE157A500AF177E /* Track.swift */,
+				026F3B771AE15A8300AF177E /* TrackCell.swift */,
 			);
 			path = iTunesPreviewTutorial;
 			sourceTree = "<group>";
@@ -225,11 +231,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				026F3B781AE15A8300AF177E /* TrackCell.swift in Sources */,
 				020061671AE03E1E0062608B /* SearchResultsViewController.swift in Sources */,
 				020061651AE03E1E0062608B /* AppDelegate.swift in Sources */,
 				020061851AE04D190062608B /* APIController.swift in Sources */,
 				020061891AE081290062608B /* Album.swift in Sources */,
 				0200618B1AE084920062608B /* DetailsViewController.swift in Sources */,
+				026F3B761AE157A500AF177E /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +433,7 @@
 				020061801AE03E1E0062608B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		020061811AE03E1E0062608B /* Build configuration list for PBXNativeTarget "iTunesPreviewTutorialTests" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +442,7 @@
 				020061831AE03E1E0062608B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

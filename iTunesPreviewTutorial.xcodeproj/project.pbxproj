@@ -15,6 +15,8 @@
 		0200617B1AE03E1E0062608B /* iTunesPreviewTutorialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200617A1AE03E1E0062608B /* iTunesPreviewTutorialTests.swift */; };
 		020061851AE04D190062608B /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020061841AE04D190062608B /* APIController.swift */; };
 		020061871AE057B10062608B /* Blank52.png in Resources */ = {isa = PBXBuildFile; fileRef = 020061861AE057B10062608B /* Blank52.png */; };
+		020061891AE081290062608B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020061881AE081290062608B /* Album.swift */; };
+		0200618B1AE084920062608B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200618A1AE084920062608B /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		0200617A1AE03E1E0062608B /* iTunesPreviewTutorialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesPreviewTutorialTests.swift; sourceTree = "<group>"; };
 		020061841AE04D190062608B /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		020061861AE057B10062608B /* Blank52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank52.png; sourceTree = "<group>"; };
+		020061881AE081290062608B /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		0200618A1AE084920062608B /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				0200616B1AE03E1E0062608B /* Images.xcassets */,
 				0200616D1AE03E1E0062608B /* LaunchScreen.xib */,
 				020061621AE03E1E0062608B /* Supporting Files */,
+				020061881AE081290062608B /* Album.swift */,
+				0200618A1AE084920062608B /* DetailsViewController.swift */,
 			);
 			path = iTunesPreviewTutorial;
 			sourceTree = "<group>";
@@ -222,6 +228,8 @@
 				020061671AE03E1E0062608B /* SearchResultsViewController.swift in Sources */,
 				020061651AE03E1E0062608B /* AppDelegate.swift in Sources */,
 				020061851AE04D190062608B /* APIController.swift in Sources */,
+				020061891AE081290062608B /* Album.swift in Sources */,
+				0200618B1AE084920062608B /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
